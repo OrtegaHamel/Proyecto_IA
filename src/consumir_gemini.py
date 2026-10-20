@@ -49,7 +49,17 @@ def obtener_dato_de_prueba(pregunta): #pregunta = "Confirma la conexion"
     #url = resultado de armar_peticion
     #body = resultado de armar_peticion
     datos = enviar_peticion(url, body)
+    costo = calcular_costo(datos, 0.00000075, 0.00000375)
+    print(f"Costo estimado: ${costo:.6f} USD")
     return extraer_texto(datos)
+
+def calcular_costo(datos, precio_entrada, precio_salida):
+    uso = datos["usageMetadata"]
+    tokens_entrada = uso["promptTokenCount"]
+    tokens_salida = uso["candidatesTokenCount"]
+    tokens_razonamiento = uso["thoughtTokenCount"]
+    costo = (tokens_entrada * precio_entrada) + ((tokens_salida + tokens_razonamiento) * precio_salida)
+    return costo
 
 try:
     print(obtener_dato_de_prueba("Confirma si mi conexión está funcionando."))

@@ -38,20 +38,25 @@ def armar_peticion(modelo, pregunta, system_instruction, response_schema=None): 
 
 
 #función envía la petición
-def enviar_peticion(url, body, response_schema=None):
+def enviar_peticion(url, body):
     try:
         respuesta = requests.post(url, json=body, timeout=30)
     except requests.exceptions.ConnectionError:
-        raise RuntimeError("Error de conexión. Verifica tu conexión a internet.")
+        raise RuntimeError("No se pudo conectar con el servicio. Intenta de nuevo en unos momentos.")
     except requests.exceptions.Timeout:
-        raise RuntimeError("El tiempo de espera se agotó. Intenta de nuevo.")
+        raise RuntimeError("Se agotó el tiempo. Intenta de nuevo en unos momentos.")
 
+    if respuesta.status_code in(401, 403):
+        raise ValueError("Credencial inválida o sin permiso. Revisa tu GEMINI_API_KEY")
+    if respuesta.status_code >= 500:
+        raise TimeoutError("El proveedor no pudo procesar la petición. Hay que esperar y reintentar")
+    if respuesta.status_code == 429:
+        segundos = respuesta.headers.get("Retry-After")
+        mensaje = f"Límite excedido. Reintentar en {segundos}s." if segundos else "Límite excedido."
+        raise TimeoutError(mensaje)
+        
     if respuesta.status_code != 200:
-        detalle = respuesta.text.strip()
-        mensaje = f"Error en la petición ({respuesta.status_code})"
-        if detalle:
-            mensaje = f"{mensaje}: {detalle}"
-        raise RuntimeError(mensaje)
+        raise RuntimeError(f"Error en la petición. Status Code: {respuesta.status_code}")
 
     try:
         return respuesta.json()

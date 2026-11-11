@@ -4,7 +4,7 @@ from typing import Callable, Any
 
 from consumir_gemini import armar_peticion, extraer_texto, enviar_peticion
 
-MODELO = "gemini-3.6-flash"
+MODELO = "gemini-3.5-flash-lite"
 
 def con_reintento(
     funcion: Callable[[], Any], 
@@ -41,8 +41,10 @@ def consultar_modelo(pregunta: str, system_instruction: str = "") -> str:
     url, cuerpo = armar_peticion(MODELO, pregunta, system_instruction)
     try:
         respuesta = con_reintento(lambda: enviar_peticion(url, cuerpo))
-    except TimeoutError:
-        raise RuntimeError("El servicio no respondió tras varios intentos. Intenta más tarde.")
+    except TimeoutError as error:
+        raise RuntimeError(
+            f"Se agotaron los intentos. Causa: {error}"
+        ) from error
     registrar_costo(respuesta)
     return extraer_texto(respuesta)
  

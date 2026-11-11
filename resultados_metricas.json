@@ -1,83 +1,182 @@
 [
   {
     "id": 1,
-    "consulta": "¿Qué es Python?",
-    "referencia": "Python es un lenguaje de programación interpretado.",
-    "respuesta": "Python es un lenguaje de programación interpretado, de alto nivel y de propósito general.",
-    "precision": 0.5,
-    "cobertura": 1.0,
-    "f1": 0.6666666666666666
+    "consulta": "¿Qué es el CTR en YouTube?",
+    "referencia": "El CTR mide el porcentaje de usuarios que hacen clic en tu miniatura.",
+    "respuesta": "Es el porcentaje de personas que hacen clic en tu video tras ver su miniatura.",
+    "precision": 0.6,
+    "cobertura": 0.6923076923076923,
+    "f1": 0.6428571428571429
   },
   {
     "id": 2,
-    "consulta": "¿En qué año fue la primera publicación de Python?",
-    "referencia": "La primera publicación de Python fue en 1991.",
-    "respuesta": "La primera publicación del lenguaje de programación Python fue realizada en 1991.",
-    "precision": 0.6666666666666666,
-    "cobertura": 1.0,
-    "f1": 0.8
+    "consulta": "¿Qué es la retención de audiencia?",
+    "referencia": "La retención de audiencia indica el porcentaje de vídeo que los usuarios ven.",
+    "respuesta": "Es el porcentaje de espectadores que ven un contenido durante un tiempo determinado.",
+    "precision": 0.38461538461538464,
+    "cobertura": 0.38461538461538464,
+    "f1": 0.38461538461538464
   },
   {
     "id": 3,
-    "consulta": "¿Qué es una lista en Python?",
-    "referencia": "Una lista es una colección ordenada y modificable.",
-    "respuesta": "Una lista es una colección ordenada y mutable de elementos en Python.",
-    "precision": 0.5833333333333334,
-    "cobertura": 0.875,
-    "f1": 0.7000000000000001
+    "consulta": "¿Para qué sirve el gancho o hook al inicio de un vídeo?",
+    "referencia": "El gancho sirve para capturar la atención en los primeros segundos y evitar que abandonen.",
+    "respuesta": "Sirve para capturar la atención inmediata del espectador y evitar que abandone el vídeo.",
+    "precision": 0.6428571428571429,
+    "cobertura": 0.6,
+    "f1": 0.6206896551724138
   },
   {
     "id": 4,
-    "consulta": "¿Qué devuelve len en Python?",
-    "referencia": "len devuelve la cantidad de elementos de un objeto.",
-    "respuesta": "Devuelve el número entero de elementos que contiene un objeto.",
-    "precision": 0.5,
-    "cobertura": 0.5555555555555556,
-    "f1": 0.5263157894736842
+    "consulta": "¿Qué función cumplen las etiquetas o tags en YouTube?",
+    "referencia": "Las etiquetas ayudan al algoritmo a entender el contexto y la temática del vídeo.",
+    "respuesta": "Permiten categorizar y optimizar los videos para mejorar su visibilidad en las búsquedas.",
+    "precision": 0.15384615384615385,
+    "cobertura": 0.14285714285714285,
+    "f1": 0.14814814814814817
   },
   {
     "id": 5,
-    "consulta": "¿Para qué sirve print en Python?",
-    "referencia": "print muestra una representación de los objetos en la salida de texto.",
-    "respuesta": "Sirve para mostrar información o resultados en la pantalla o consola.",
-    "precision": 0.18181818181818182,
-    "cobertura": 0.16666666666666666,
-    "f1": 0.17391304347826086
+    "consulta": "¿Qué es una miniatura de alto impacto?",
+    "referencia": "Una miniatura de alto impacto utiliza colores contrastantes y elementos visuales claros para destacar.",
+    "respuesta": "Una imagen visualmente atractiva diseñada para captar la atención instantánea y generar clics.",
+    "precision": 0.23076923076923078,
+    "cobertura": 0.21428571428571427,
+    "f1": 0.22222222222222224
   },
   {
     "id": 6,
-    "consulta": "¿Qué es un diccionario en Python?",
-    "referencia": "Un diccionario relaciona claves con valores.",
-    "respuesta": "Colección mutable de datos organizados en pares de clave y valor.",
-    "precision": 0.0,
-    "cobertura": 0.0,
-    "f1": 0.0
+    "consulta": "¿Por qué es importante el SEO en YouTube?",
+    "referencia": "El SEO optimiza tu contenido para aparecer en los resultados de búsqueda y sugeridos.",
+    "respuesta": "El SEO",
+    "precision": 1.0,
+    "cobertura": 0.14285714285714285,
+    "f1": 0.25
   },
   {
     "id": 7,
-    "consulta": "¿Qué es una tupla en Python?",
-    "referencia": "Una tupla es una secuencia inmutable.",
-    "respuesta": "Una tupla en Python es una colección ordenada e inmutable de elementos.",
-    "precision": 0.4166666666666667,
-    "cobertura": 0.8333333333333334,
-    "f1": 0.5555555555555556
+    "consulta": "¿Qué mide el tiempo de visualización o watch time?",
+    "referencia": "El tiempo de visualización mide el total de horas que los espectadores pasan viendo tus vídeos.",
+    "respuesta": "Mide el tiempo total que los usuarios pasan viendo un video.",
+    "precision": 0.7272727272727273,
+    "cobertura": 0.5,
+    "f1": 0.5925925925925926
   },
   {
     "id": 8,
-    "consulta": "¿Qué es un conjunto en Python?",
-    "referencia": "Un conjunto almacena elementos únicos.",
-    "respuesta": "Un conjunto en Python es una colección desordenada de elementos únicos.",
-    "precision": 0.36363636363636365,
-    "cobertura": 0.8,
-    "f1": 0.5000000000000001
+    "consulta": "¿Para qué sirve un llamado a la acción o CTA?",
+    "referencia": "Un llamado a la acción guía al espectador para que se suscriba, comente o vea otro vídeo.",
+    "respuesta": "Busca guiar al usuario para que realice una acción específica e inmediata.",
+    "precision": 0.3333333333333333,
+    "cobertura": 0.23529411764705882,
+    "f1": 0.27586206896551724
   },
   {
     "id": 9,
-    "consulta": "¿Para qué sirve def en Python?",
-    "referencia": "def define una función.",
-    "respuesta": "Se usa para definir funciones o métodos reutilizables en Python.",
+    "consulta": "¿Qué es la tasa de rebote o abandono temprano?",
+    "referencia": "El abandono temprano ocurre cuando los espectadores cierran el vídeo en los primeros segundos.",
+    "respuesta": "Porcentaje de visitantes que abandonan un sitio web sin interactuar con otra página.",
     "precision": 0.0,
     "cobertura": 0.0,
     "f1": 0.0
+  },
+  {
+    "id": 10,
+    "consulta": "¿Qué son los capítulos de vídeo en YouTube?",
+    "referencia": "Los capítulos dividen el vídeo en secciones con marcas de tiempo para facilitar la navegación.",
+    "respuesta": "Son divisiones temporales que segmentan un vídeo para facilitar su navegación temática.",
+    "precision": 0.3333333333333333,
+    "cobertura": 0.26666666666666666,
+    "f1": 0.2962962962962963
+  },
+  {
+    "id": 11,
+    "consulta": "¿Cómo influye la miniatura en las impresiones?",
+    "referencia": "Una buena miniatura impulsa las impresiones al generar mayor interés visual en el feed.",
+    "respuesta": "Una miniatura atractiva aumenta las impresiones al captar la atención y motivar clics.",
+    "precision": 0.38461538461538464,
+    "cobertura": 0.35714285714285715,
+    "f1": 0.3703703703703704
+  },
+  {
+    "id": 12,
+    "consulta": "¿Qué es una pantalla final en YouTube?",
+    "referencia": "La pantalla final promociona otros vídeos o canales durante los últimos segundos de reproducción.",
+    "respuesta": "Es un elemento interactivo que promociona contenido al",
+    "precision": 0.125,
+    "cobertura": 0.07142857142857142,
+    "f1": 0.09090909090909091
+  },
+  {
+    "id": 13,
+    "consulta": "¿Para qué sirve analizar las analíticas de YouTube Studio?",
+    "referencia": "Permite identificar qué contenido retiene mejor a la audiencia para replicar el éxito.",
+    "respuesta": "Sirve para medir el rendimiento, entender a la audiencia y optimizar el contenido del canal.",
+    "precision": 0.4,
+    "cobertura": 0.46153846153846156,
+    "f1": 0.42857142857142855
+  },
+  {
+    "id": 14,
+    "consulta": "¿Qué caracteriza a un buen título para YouTube?",
+    "referencia": "Un buen título genera curiosidad, incluye palabras clave y es directo al punto.",
+    "respuesta": "Un buen título de YouTube es claro, atractivo y genera curiosidad en el espectador.",
+    "precision": 0.5,
+    "cobertura": 0.5384615384615384,
+    "f1": 0.5185185185185186
+  },
+  {
+    "id": 15,
+    "consulta": "¿Qué es el algoritmo de recomendación de YouTube?",
+    "referencia": "El algoritmo recomienda vídeos basándose en el historial y comportamiento previo del usuario.",
+    "respuesta": "Es un sistema informático que predice y muestra videos según los intereses del usuario.",
+    "precision": 0.21428571428571427,
+    "cobertura": 0.23076923076923078,
+    "f1": 0.22222222222222224
+  },
+  {
+    "id": 16,
+    "consulta": "¿Por qué importa la descripción del vídeo para el SEO?",
+    "referencia": "La descripción aporta contexto textual relevante para los motores de búsqueda de la plataforma.",
+    "respuesta": "La descripción optimizada ayuda a los buscadores a comprender e indexar mejor el contenido.",
+    "precision": 0.21428571428571427,
+    "cobertura": 0.21428571428571427,
+    "f1": 0.21428571428571427
+  },
+  {
+    "id": 17,
+    "consulta": "¿Qué es el formato Shorts en YouTube?",
+    "referencia": "Shorts es un formato de vídeo vertical de corta duración enfocado en consumo rápido.",
+    "respuesta": "Son videos verticales de formato breve, con una duración máxima de sesenta segundos.",
+    "precision": 0.3076923076923077,
+    "cobertura": 0.2857142857142857,
+    "f1": 0.29629629629629634
+  },
+  {
+    "id": 18,
+    "consulta": "¿Cómo ayuda la preproducción en un canal de YouTube?",
+    "referencia": "La preproducción organiza la estructura, el guion y los recursos antes de grabar para ahorrar tiempo.",
+    "respuesta": "Organiza ideas y recursos para asegurar videos eficientes y de alta calidad.",
+    "precision": 0.4166666666666667,
+    "cobertura": 0.3125,
+    "f1": 0.35714285714285715
+  },
+  {
+    "id": 19,
+    "consulta": "¿Qué es el engagement en una comunidad de YouTube?",
+    "referencia": "El engagement refleja la interacción activa de los usuarios mediante likes, comentarios y compartidos.",
+    "respuesta": "Es el grado de interacción y compromiso de la audiencia con el canal.",
+    "precision": 0.38461538461538464,
+    "cobertura": 0.35714285714285715,
+    "f1": 0.3703703703703704
+  },
+  {
+    "id": 20,
+    "consulta": "¿Qué ventaja aporta un guion estructurado por bloques?",
+    "referencia": "Un guion estructurado evita baches de contenido y mantiene un ritmo dinámico en la narración.",
+    "respuesta": "Facilita la organización visual y la edición rápida de los contenidos audiovisuales.",
+    "precision": 0.25,
+    "cobertura": 0.2,
+    "f1": 0.22222222222222224
   }
 ]

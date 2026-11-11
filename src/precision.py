@@ -62,88 +62,90 @@ def cargar_resultados(ruta):
     return json.loads(contenido)
 
 
+# Casos de prueba adaptados al Copiloto de Preproducción y SEO para YouTube
 casos = [
     (
-        "¿Qué es Python?",
-        "Python es un lenguaje de programación interpretado.",
+        "¿Qué es el CTR en YouTube?",
+        "El CTR mide el porcentaje de usuarios que hacen clic en tu miniatura.",
     ),
     (
-        "¿En qué año fue la primera publicación de Python?",
-        "La primera publicación de Python fue en 1991.",
+        "¿Qué es la retención de audiencia?",
+        "La retención de audiencia indica el porcentaje de vídeo que los usuarios ven.",
     ),
     (
-        "¿Qué es una lista en Python?",
-        "Una lista es una colección ordenada y modificable.",
+        "¿Para qué sirve el gancho o hook al inicio de un vídeo?",
+        "El gancho sirve para capturar la atención en los primeros segundos y evitar que abandonen.",
     ),
     (
-        "¿Qué devuelve len en Python?",
-        "len devuelve la cantidad de elementos de un objeto.",
+        "¿Qué función cumplen las etiquetas o tags en YouTube?",
+        "Las etiquetas ayudan al algoritmo a entender el contexto y la temática del vídeo.",
     ),
     (
-        "¿Para qué sirve print en Python?",
-        "print muestra una representación de los objetos en la salida de texto.",
+        "¿Qué es una miniatura de alto impacto?",
+        "Una miniatura de alto impacto utiliza colores contrastantes y elementos visuales claros para destacar.",
     ),
     (
-        "¿Qué es un diccionario en Python?",
-        "Un diccionario relaciona claves con valores.",
+        "¿Por qué es importante el SEO en YouTube?",
+        "El SEO optimiza tu contenido para aparecer en los resultados de búsqueda y sugeridos.",
     ),
     (
-        "¿Qué es una tupla en Python?",
-        "Una tupla es una secuencia inmutable.",
+        "¿Qué mide el tiempo de visualización o watch time?",
+        "El tiempo de visualización mide el total de horas que los espectadores pasan viendo tus vídeos.",
     ),
     (
-        "¿Qué es un conjunto en Python?",
-        "Un conjunto almacena elementos únicos.",
+        "¿Para qué sirve un llamado a la acción o CTA?",
+        "Un llamado a la acción guía al espectador para que se suscriba, comente o vea otro vídeo.",
     ),
     (
-        "¿Para qué sirve def en Python?",
-        "def define una función.",
+        "¿Qué es la tasa de rebote o abandono temprano?",
+        "El abandono temprano ocurre cuando los espectadores cierran el vídeo en los primeros segundos.",
     ),
     (
-        "¿Qué hace return en una función?",
-        "return termina la función y devuelve un valor al llamador.",
+        "¿Qué son los capítulos de vídeo en YouTube?",
+        "Los capítulos dividen el vídeo en secciones con marcas de tiempo para facilitar la navegación.",
     ),
     (
-        "¿Para qué sirve try except en Python?",
-        "try except permite manejar excepciones.",
+        "¿Cómo influye la miniatura en las impresiones?",
+        "Una buena miniatura impulsa las impresiones al generar mayor interés visual en el feed.",
     ),
     (
-        "¿Qué indica HTTP 429?",
-        "HTTP 429 indica demasiadas solicitudes.",
+        "¿Qué es una pantalla final en YouTube?",
+        "La pantalla final promociona otros vídeos o canales durante los últimos segundos de reproducción.",
     ),
     (
-        "¿Qué indica HTTP 403?",
-        "HTTP 403 indica que el servidor rechaza autorizar la solicitud.",
+        "¿Para qué sirve analizar las analíticas de YouTube Studio?",
+        "Permite identificar qué contenido retiene mejor a la audiencia para replicar el éxito.",
     ),
     (
-        "¿Qué significa backoff exponencial?",
-        "El backoff exponencial aumenta la espera entre reintentos de forma exponencial.",
+        "¿Qué caracteriza a un buen título para YouTube?",
+        "Un buen título genera curiosidad, incluye palabras clave y es directo al punto.",
     ),
     (
-        "¿Para qué sirve jitter en los reintentos?",
-        "El jitter añade aleatoriedad a la espera para evitar reintentos simultáneos.",
+        "¿Qué es el algoritmo de recomendación de YouTube?",
+        "El algoritmo recomienda vídeos basándose en el historial y comportamiento previo del usuario.",
     ),
     (
-        "¿Qué hace lower en una cadena de Python?",
-        "lower devuelve una copia de la cadena convertida a minúsculas.",
+        "¿Por qué importa la descripción del vídeo para el SEO?",
+        "La descripción aporta contexto textual relevante para los motores de búsqueda de la plataforma.",
     ),
     (
-        "¿Qué hace split sin argumentos en Python?",
-        "split divide una cadena por secuencias de espacios en blanco.",
+        "¿Qué es el formato Shorts en YouTube?",
+        "Shorts es un formato de vídeo vertical de corta duración enfocado en consumo rápido.",
     ),
     (
-        "¿Qué hace Counter en Python?",
-        "Counter cuenta las apariciones de cada elemento.",
+        "¿Cómo ayuda la preproducción en un canal de YouTube?",
+        "La preproducción organiza la estructura, el guion y los recursos antes de grabar para ahorrar tiempo.",
     ),
     (
-        "¿Qué hace el modo a al escribir en un archivo?",
-        "El modo a agrega contenido al final sin borrar el contenido existente.",
+        "¿Qué es el engagement en una comunidad de YouTube?",
+        "El engagement refleja la interacción activa de los usuarios mediante likes, comentarios y compartidos.",
     ),
     (
-        "¿Qué ventaja tiene usar un mock de la API en una prueba?",
-        "Permite probar el código sin depender de la red ni consumir la API real.",
+        "¿Qué ventaja aporta un guion estructurado por bloques?",
+        "Un guion estructurado evita baches de contenido y mantiene un ritmo dinámico en la narración.",
     ),
 ]
+
 
 def resumir_metricas(resultados):
     if not resultados:
@@ -223,22 +225,6 @@ def main():
 
     for caso in peores_casos[:3]:
         print(caso["consulta"], caso["f1"])
-    
-    
-# referencia = procesar_texto(
-#     "Python es un lenguaje de programación interpretado."
-# )
-
-# texto_respuesta = consultar_modelo("¿Qué es Python?",
-#                                    system_instruction="Responde en español con una definición breve, en una sola oración de máximo 15 palabras. Sin listas, ejemplos ni introducciones.")
-
-# respuesta = procesar_texto(texto_respuesta)
-# resultado = calcular_precision_cobertura_f1(referencia, respuesta)
-
-# print("Respuesta:", texto_respuesta)
-# print("Tokens de referencia:", len(referencia))
-# print("Tokens de respuesta:", len(respuesta))
-# print(resultado)
 
 
 if __name__ == "__main__":

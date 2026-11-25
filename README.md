@@ -64,6 +64,7 @@ En Windows, usa el Python del entorno virtual:
 .\.venv\Scripts\python.exe src\consumir_gemini.py
 .\.venv\Scripts\python.exe src\evaluacion_modelos.py
 .\.venv\Scripts\python.exe src\consistencia.py
+.\.venv\Scripts\python.exe src\mi_agente.py
 ```
 
 En macOS o Linux, activa `.venv` como se indica arriba y ejecuta:
@@ -72,6 +73,7 @@ En macOS o Linux, activa `.venv` como se indica arriba y ejecuta:
 python src/consumir_gemini.py
 python src/evaluacion_modelos.py
 python src/consistencia.py
+python src/mi_agente.py
 ```
 
 Los programas son:
@@ -79,6 +81,7 @@ Los programas son:
 - `consumir_gemini.py`: envía una petición de prueba a Gemini y muestra la respuesta, la latencia y el costo estimado.
 - `evaluacion_modelos.py`: consulta tres modelos cuatro veces cada uno y resume latencia y costo.
 - `consistencia.py`: ejecuta los tres prompts del banco hasta tres veces cada uno y guarda el resumen en `src/prompts/registro_resultados.json`.
+- `mi_agente.py`: inicia un copiloto interactivo con memoria de conversación para apoyar en guiones, SEO y planificación de retención. Guarda las trazas localmente en `trazas_agente.jsonl`.
 
 Las ejecuciones consumen solicitudes de tu cuenta de Gemini y pueden generar costos. Para comprobar la configuración con una sola petición, empieza por `consumir_gemini.py`.
 

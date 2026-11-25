@@ -85,6 +85,27 @@ Los programas son:
 
 Las ejecuciones consumen solicitudes de tu cuenta de Gemini y pueden generar costos. Para comprobar la configuración con una sola petición, empieza por `consumir_gemini.py`.
 
+## Flujo RAG: preparación y medición
+
+El flujo de prueba del Copiloto de YouTube usa `data/conocimiento_youtube.md` como corpus y almacena el índice Chroma local en `data/vectorstore_youtube/` (no se sube a Git). Configura `.env` con tu llave antes de indexar:
+
+```powershell
+.\.venv\Scripts\python.exe src\preparar_rag_youtube.py
+```
+
+Mide consultas reales de una en una. Cada ejecución agrega una línea JSONL a `registros_latencia_costo.jsonl`:
+
+```powershell
+.\.venv\Scripts\python.exe src\registro_rag.py "¿Qué es la retención de audiencia?" --k 3
+.\.venv\Scripts\python.exe src\registro_rag.py "¿Qué caracteriza a un buen título para YouTube?" --k 3
+.\.venv\Scripts\python.exe src\registro_rag.py "¿Cómo ayuda la preproducción en un canal de YouTube?" --k 3
+.\.venv\Scripts\python.exe src\registro_rag.py "¿Qué caracteriza a un buen título para YouTube?" --k 6
+```
+
+Estas consultas cubren tres preguntas del conjunto de evaluación de `src/precision.py` y repiten la del título con `k=6` para compararla con `k=3`. El registro desglosa `embed`, `busqueda`, `armado_prompt` y `generacion`, junto con la latencia total, las citas y los tokens que devuelve Gemini. Para estimar el costo de generación, completa `GEMINI_INPUT_USD_PER_1M` y `GEMINI_OUTPUT_USD_PER_1M` en `.env` con las tarifas vigentes para el modelo indicado en `RAG_CHAT_MODEL`; si no se configuran, el costo queda como `null`. El adaptador de embeddings no expone aquí el uso de tokens de la consulta, por lo que este costo no incluye el embedding.
+
+La primera vez crea el índice con llamadas reales al servicio de embeddings. El script evita agregar chunks de nuevo si ya hay un índice en la ruta elegida. Las consultas de medición también llaman a Gemini y no se ejecutan automáticamente durante las pruebas unitarias.
+
 ## Estructura del proyecto
 
 ```text

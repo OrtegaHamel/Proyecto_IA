@@ -20,3 +20,6 @@ Thumbs.db
 # Logs
 *.log
 trazas_agente.jsonl
+
+# Indice vectorial local generado por el flujo RAG
+data/vectorstore_youtube/

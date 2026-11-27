@@ -1,0 +1,22 @@
+[
+  {
+    "thread_id": "prompt-40722244c9c64e0a9746f95e9bcfee76",
+    "pausa_verificada": true,
+    "decision": true,
+    "estado_final": {
+      "huella_nueva": "c2df00348f85",
+      "huella_activa": "c2df00348f85",
+      "aprobado": true
+    }
+  },
+  {
+    "thread_id": "prompt-f9616fc20e574e9abba1beaf83499831",
+    "pausa_verificada": true,
+    "decision": false,
+    "estado_final": {
+      "huella_nueva": "c2df00348f85",
+      "huella_activa": "cf965bcfd539",
+      "aprobado": false
+    }
+  }
+]

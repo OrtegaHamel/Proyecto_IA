@@ -1,0 +1,10 @@
+{
+  "thread_id": "prompt-5ff9b84ced8046d6b0e39abd7c66ba06",
+  "decision": "aprobar",
+  "huella_revisada": "c2df00348f85",
+  "estado_final": {
+    "huella_nueva": "c2df00348f85",
+    "huella_activa": "c2df00348f85",
+    "aprobado": true
+  }
+}

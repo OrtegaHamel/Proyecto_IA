@@ -1,4 +1,5 @@
 import json
+import os
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -11,10 +12,15 @@ from langchain_core.tools import tool
 from langchain_google_genai import ChatGoogleGenerativeAI
 from pydantic import BaseModel, Field
 
+if __package__:
+    from .registro_prompts import obtener_activa
+else:
+    from registro_prompts import obtener_activa
+
 
 load_dotenv()
 
-modelo = ChatGoogleGenerativeAI(model="gemini-3.6-flash")
+modelo = ChatGoogleGenerativeAI(model=os.getenv("GEMINI_MODEL", "gemini-3.6-flash"))
 RUTA_TRAZAS = Path(__file__).resolve().parent.parent / "trazas_agente.jsonl"
 
 
@@ -135,26 +141,11 @@ def obtener_historial(session_id: str) -> InMemoryChatMessageHistory:
     return historiales[session_id]
 
 
+VERSION_PROMPT_ACTIVA = obtener_activa()
+prompt_sistema = VERSION_PROMPT_ACTIVA["texto"]
 prompt_agente = ChatPromptTemplate.from_messages(
     [
-        (
-            "system",
-            "Eres un copiloto en español para creadores y equipos de YouTube. "
-            "Ayudas con preproducción, guiones, SEO y planificación de retención. "
-            "Puedes proponer títulos, descripciones y etiquetas; diseñar un gancho "
-            "para los primeros segundos, bloques de guion y una llamada a la acción; "
-            "y definir audiencia, propuesta de valor y ángulo diferenciador. "
-            "Usa las herramientas cuando aporten cálculos o revisiones concretas. "
-            "Usa el historial para respetar el nicho, la audiencia y el tono del "
-            "creador sin volver a preguntar lo ya indicado. Distingue las "
-            "recomendaciones de las métricas reales: no inventes datos, tendencias "
-            "ni resultados de rendimiento, y aclara que la retención solo puede "
-            "medirse con analíticas del video publicado. No afirmes que el creador "
-            "ofrece archivos descargables, productos o episodios futuros salvo que "
-            "lo haya indicado; redacta llamadas a la acción sin prometer recursos "
-            "no confirmados. Adapta el nivel de detalle a la solicitud y entrega "
-            "respuestas claras y accionables.",
-        ),
+        ("system", prompt_sistema),
         MessagesPlaceholder("chat_history"),
         ("human", "{entrada}"),
         MessagesPlaceholder("agent_scratchpad"),
@@ -202,6 +193,7 @@ def registrar_traza(session_id: str, entrada: str, resultado: dict) -> None:
     registro = {
         "timestamp": datetime.now(timezone.utc).isoformat(),
         "session_id": session_id,
+        "huella_prompt": VERSION_PROMPT_ACTIVA["huella"],
         "entrada": entrada,
         "acciones": [
             {

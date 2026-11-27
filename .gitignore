@@ -23,3 +23,6 @@ trazas_agente.jsonl
 
 # Indice vectorial local generado por el flujo RAG
 data/vectorstore_youtube/
+
+# Version activa del prompt y decisiones locales de supervision
+.local/

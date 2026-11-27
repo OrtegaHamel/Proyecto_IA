@@ -65,6 +65,9 @@ En Windows, usa el Python del entorno virtual:
 .\.venv\Scripts\python.exe src\evaluacion_modelos.py
 .\.venv\Scripts\python.exe src\consistencia.py
 .\.venv\Scripts\python.exe src\mi_agente.py
+.\.venv\Scripts\python.exe -m src.registro_prompts
+.\.venv\Scripts\python.exe -m src.matriz_riesgos
+.\.venv\Scripts\python.exe -m src.grafo_supervision --verificar
 ```
 
 En macOS o Linux, activa `.venv` como se indica arriba y ejecuta:
@@ -74,6 +77,9 @@ python src/consumir_gemini.py
 python src/evaluacion_modelos.py
 python src/consistencia.py
 python src/mi_agente.py
+python -m src.registro_prompts
+python -m src.matriz_riesgos
+python -m src.grafo_supervision --verificar
 ```
 
 Los programas son:
@@ -81,9 +87,16 @@ Los programas son:
 - `consumir_gemini.py`: envía una petición de prueba a Gemini y muestra la respuesta, la latencia y el costo estimado.
 - `evaluacion_modelos.py`: consulta tres modelos cuatro veces cada uno y resume latencia y costo.
 - `consistencia.py`: ejecuta los tres prompts del banco hasta tres veces cada uno y guarda el resumen en `src/prompts/registro_resultados.json`.
-- `mi_agente.py`: inicia un copiloto interactivo con memoria de conversación para apoyar en guiones, SEO y planificación de retención. Guarda las trazas localmente en `trazas_agente.jsonl`.
+- `mi_agente.py`: inicia un copiloto interactivo con memoria de conversación para apoyar en guiones, SEO y planificación de retención. Guarda las trazas localmente en `trazas_agente.jsonl`, incluyendo la huella del prompt utilizado.
+- `registro_prompts.py`: conserva dos versiones del prompt del copiloto, sus huellas y el diff en `docs/`. Al cambiar `PROMPT_V2` y ejecutar el modulo, registra el cambio sin sobrescribir el historial.
+- `grafo_supervision.py`: pausa la activacion de una version nueva hasta que una persona revise el diff y apruebe o rechace su huella. `--verificar` prueba ambos caminos sin llamar a Gemini ni cambiar la version activa. El prompt aprobado se carga al iniciar `mi_agente.py`; reinicia el proceso para aplicar un cambio.
+- `matriz_riesgos.py`: genera la matriz del copiloto en `docs/matriz_riesgos.md` y `docs/matriz_riesgos.json`, con responsables y controles pendientes diferenciados.
+
+Para solicitar una aprobacion real, primero ejecuta `registro_prompts.py` despues de editar `PROMPT_V2` y luego ejecuta `python -m src.grafo_supervision` (en Windows, `.\.venv\Scripts\python.exe -m src.grafo_supervision`). El grafo muestra el diff, se pausa y solo actualiza `.local/prompt_activo.json` si apruebas la huella propuesta. `--verificar` solo prueba los caminos y no modifica la version activa.
 
 Las ejecuciones consumen solicitudes de tu cuenta de Gemini y pueden generar costos. Para comprobar la configuración con una sola petición, empieza por `consumir_gemini.py`.
+
+La version activa y la ultima decision de supervision se guardan en `.local/`, que no se sube a Git. Las trazas del agente y del medidor RAG contienen entradas y respuestas; mantenlas locales y no las compartas con datos reales sin revisarlas.
 
 ## Flujo RAG: preparación y medición
 

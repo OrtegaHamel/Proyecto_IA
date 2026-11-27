@@ -106,10 +106,17 @@ Estas consultas cubren tres preguntas del conjunto de evaluación de `src/precis
 
 La primera vez crea el índice con llamadas reales al servicio de embeddings. El script evita agregar chunks de nuevo si ya hay un índice en la ruta elegida. Las consultas de medición también llaman a Gemini y no se ejecutan automáticamente durante las pruebas unitarias.
 
+## Dataset de ejemplos de personalización
+
+`data/ejemplos_personalizacion.jsonl` contiene 200 pares sintéticos de entrada y salida, distribuidos en cuatro tareas: SEO, estructura de guion, análisis de propuesta de valor y planificación de retención (50 ejemplos por tarea). Cada línea incluye `id`, `categoria`, `entrada`, `salida` y `sintetico`.
+
+Los registros se prepararon localmente, sin llamadas a la API ni tuning. Después se hizo una llamada de inferencia a Gemini para revisar el documento y una muestra estratificada de 20 ejemplos: el proveedor reportó 5.867 tokens de entrada y 80 de salida. Con tarifas de $0,30/$2,50 por millón de tokens de entrada/salida, su costo estimado es $0,0019601 USD (asumiendo precios por millón). La revisión no encontró contradicciones, pero los ejemplos siguen siendo borradores sintéticos: revisa su exactitud y apruébalos antes de usarlos para entrenar. Se mantienen separados de `resultados_metricas.json`, que contiene resultados de evaluación.
+
 ## Estructura del proyecto
 
 ```text
 .
+├── data/                 # Corpus RAG y ejemplos sintéticos de personalización
 ├── docs/                 # Documentación y recursos del proyecto
 ├── src/
 │   ├── prompts/           # Banco de prompts y resultados
